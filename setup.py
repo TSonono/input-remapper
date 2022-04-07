@@ -94,7 +94,7 @@ for po_file in glob.glob(PO_FILES):
     lang = splitext(basename(po_file))[0]
     lang_data.append(
         (
-            f"/usr/share/input-remapper/lang/{lang}/LC_MESSAGES",
+            f"/var/usrlocal/share/input-remapper/lang/{lang}/LC_MESSAGES",
             [f"mo/{lang}/input-remapper.mo"],
         )
     )
@@ -113,21 +113,21 @@ setup(
     data_files=[
         # see development.md#files
         *lang_data,
-        ("/usr/share/input-remapper/", glob.glob("data/*")),
-        ("/usr/share/applications/", ["data/input-remapper.desktop"]),
-        ("/usr/share/polkit-1/actions/", ["data/input-remapper.policy"]),
-        ("/usr/lib/systemd/system", ["data/input-remapper.service"]),
+        ("/var/usrlocal/share/input-remapper/", glob.glob("data/*")),
+        ("/var/usrlocal/share/applications/", ["data/input-remapper.desktop"]),
+        ("/var/usrlocal/share/polkit-1/actions/", ["data/input-remapper.policy"]),
+        ("/var/usrlocal/lib/systemd/system", ["data/input-remapper.service"]),
         ("/etc/dbus-1/system.d/", ["data/inputremapper.Control.conf"]),
         ("/etc/xdg/autostart/", ["data/input-remapper-autoload.desktop"]),
-        ("/usr/lib/udev/rules.d", ["data/99-input-remapper.rules"]),
-        ("/usr/bin/", ["bin/input-remapper-gtk"]),
-        ("/usr/bin/", ["bin/input-remapper-service"]),
-        ("/usr/bin/", ["bin/input-remapper-control"]),
-        ("/usr/bin/", ["bin/input-remapper-helper"]),
+        ("/var/usrlocal/lib/udev/rules.d", ["data/99-input-remapper.rules"]),
+        ("/var/usrlocal//bin/", ["bin/input-remapper-gtk"]),
+        ("/var/usrlocal/bin/", ["bin/input-remapper-service"]),
+        ("/var/usrlocal/bin/", ["bin/input-remapper-control"]),
+        ("/var/usrlocal/bin/", ["bin/input-remapper-helper"]),
         # those will be deleted at some point:
-        ("/usr/bin/", ["bin/key-mapper-gtk"]),
-        ("/usr/bin/", ["bin/key-mapper-service"]),
-        ("/usr/bin/", ["bin/key-mapper-control"]),
+        ("/var/usrlocal/bin/", ["bin/key-mapper-gtk"]),
+        ("/var/usrlocal/bin/", ["bin/key-mapper-service"]),
+        ("/var/usrlocal/bin/", ["bin/key-mapper-control"]),
     ],
     install_requires=["setuptools", "evdev", "pydbus", "pygobject", "pydantic"],
     cmdclass={

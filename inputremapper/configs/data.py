@@ -19,7 +19,7 @@
 # along with input-remapper.  If not, see <https://www.gnu.org/licenses/>.
 
 
-"""Get stuff from /usr/share/input-remapper, depending on the prefix."""
+"""Get stuff from /var/usrlocal/share/input-remapper, depending on the prefix."""
 
 
 import sys
@@ -38,7 +38,7 @@ def get_data_path(filename=""):
 
     Since it is a nightmare to get stuff installed with pip across
     distros this is somewhat complicated. Ubuntu uses /usr/local/share
-    for data_files (setup.py) and manjaro uses /usr/share.
+    for data_files (setup.py) and manjaro uses /var/usrlocal//share.
     """
     global logged
 
@@ -65,8 +65,8 @@ def get_data_path(filename=""):
             data = None
 
     candidates = [
-        "/usr/share/input-remapper",
-        "/usr/local/share/input-remapper",
+        "/var/usrlocal/share/input-remapper",
+        "/var/usrlocal/local/share/input-remapper",
         os.path.join(site.USER_BASE, "share/input-remapper"),
     ]
 
